@@ -13,12 +13,14 @@ import { Container, Menu, TableBody } from '@mui/material';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { personageContext } from '../../commons/context';
+import { useStylesHome } from './CSS_home';
 
-export default function HomeMenu() {
+export default function Home() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const {initialState, getInitialState, clearInitialState} = useContext(personageContext);
-
+  const classes=useStylesHome();
+  
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
