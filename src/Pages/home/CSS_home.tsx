@@ -1,12 +1,13 @@
 import { makeStyles } from '@mui/styles';
+// import background from '../background.png';
 
-export const useStylesHome=makeStyles({
-    body: {
-        backgroundColor: 'lightblue',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-      }
+export const useStylesHome= makeStyles({
+  body: {
+    backgroundImage: `url(background.png)`,
+    width: '100vw',
+    height: '100vh',
+  },
+  tableBody: {
+      marginTop:'50px',
+    }
 });

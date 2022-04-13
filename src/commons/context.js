@@ -4,7 +4,7 @@ export const personageContext = createContext();// agregar mayuscula
 
 const PersonageProvider = ({ children }) => {
 
-    const [initialState,setInitialState]=useState({
+    const [initialState, setInitialState] = useState({
         loading: false,
         errorMessage: null,
         errorCode: '',
@@ -13,31 +13,45 @@ const PersonageProvider = ({ children }) => {
     });
 
     const getInitialState = async () => {
+        setInitialState({
+            ...initialState,
+            loading: true
+        });
         await axios.get('https://swapi.dev/api/people')
             .then(response => {
-                console.log(response.data.results);
                 setInitialState({
-                    entities : response.data.results,
-                    totalItems : response.count,
+                    ...initialState,
+                    entities: response.data.results,
+                    totalItems: response.data.count,
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally(() => {
+                setInitialState((is) => ({
+                    ...is,
+                    loading: false,
                 }
                 )
-            });
+                )
+            })
     }
 
     const clearInitialState = () => {
         setInitialState(
             {
-                loading : false,
-                errorMessage : null,
-                errorCode : '',
-                entities : [],
-                totalItems : -1,
+                loading: false,
+                errorMessage: null,
+                errorCode: '',
+                entities: [],
+                totalItems: -1,
             }
         )
     }
 
     return (
-        <personageContext.Provider value={{initialState, clearInitialState, getInitialState}}>
+        <personageContext.Provider value={{ initialState, clearInitialState, getInitialState }}>
             {children}
         </personageContext.Provider>
     );

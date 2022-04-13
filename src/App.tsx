@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import HomeMenu from './Pages/homeMenu/index';
+import Home from './Pages/home/index';
 import Detail from './Pages/detail/index';
 import PersonageProvider from './commons/context'
 
@@ -10,7 +10,7 @@ function App() {
     <PersonageProvider>
       <Routes>
         <Route path="/detail/:idPersonage" element={<Detail />} />
-        <Route path="/" element={<HomeMenu />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </PersonageProvider>
   );

@@ -56,7 +56,7 @@ function Detail(props) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={handleGoBack}>GoBack</Button>
+                    <Button size="small" onClick={handleGoBack}>Volver</Button>
                 </CardActions>
             </Card>
     );
