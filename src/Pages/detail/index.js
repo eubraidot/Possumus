@@ -18,8 +18,7 @@ function Detail(props) {
 
     const { pathname } = useLocation();
     const personaId = pathname.split("/").pop();
-    console.log(personaId);
-
+    
     useEffect(() => {
         (async () => {
             const response = await fetch(`https://swapi.dev/api/people/${personaId}`)
